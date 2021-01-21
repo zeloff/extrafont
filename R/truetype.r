@@ -149,6 +149,14 @@ ttf_find_default_path <- function() {
         "~/.fonts/")                            # User fonts
     return(paths[file.exists(paths)])
 
+  } else if (grepl("^opensd", R.version$os)) {
+    # Possible font paths, depending on installed ports
+    paths <-
+      c("/usr/local/share/fonts/",
+        "/usr/X11R6/lib/X11/fonts/",
+        "~/.fonts/")                            # User fonts
+    return(paths[file.exists(paths)])
+
   } else if (grepl("^mingw", R.version$os)) {
     paths <-
       c(file.path(Sys.getenv("SystemRoot"), "Fonts"),
