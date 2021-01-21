@@ -149,7 +149,7 @@ ttf_find_default_path <- function() {
         "~/.fonts/")                            # User fonts
     return(paths[file.exists(paths)])
 
-  } else if (grepl("^opensd", R.version$os)) {
+  } else if (grepl("^openbsd", R.version$os)) {
     # Possible font paths, depending on installed ports
     paths <-
       c("/usr/local/share/fonts/",
